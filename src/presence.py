@@ -1,12 +1,11 @@
 import csv
-from src.student import Student
 
 class Attendance:
     def __init__(self, date, students_attendance):
         self.date = date
         self.students_attendance = students_attendance
 
-    # Reading attendance from file (txt or csv) and returnin Attendance object
+    # Reading attendance from file (txt or csv) and return Attendance object
     @staticmethod
     def load_attendance_from_file(filename):
         date = filename[:-4]

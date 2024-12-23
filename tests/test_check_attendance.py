@@ -5,7 +5,7 @@ from src.check_attendance import CheckAttendance
 
 
 class TestCheckAttendance(unittest.TestCase):
-#create attendance and update attendace
+#create attendance and update attendance
     def setUp(self):
         # adding test data
         Student.list_of_students = [
@@ -17,7 +17,7 @@ class TestCheckAttendance(unittest.TestCase):
     @patch('builtins.open', new_callable=mock_open)
     #mocking input for attendance status
     @patch('builtins.input', side_effect=['1', '0'])
-    def test_create_attendance(self, mock_input, mock_file):
+    def test_create_attendance(self, mock_file):
         # create attendance
         CheckAttendance.create("2024-10-30")
 
@@ -33,7 +33,7 @@ class TestCheckAttendance(unittest.TestCase):
     @patch('builtins.open', new_callable=mock_open, read_data="1,1\r\n2,0\r\n")
     # mocking input for updating attendance
     @patch('builtins.input', side_effect=['0', '1'])
-    def test_update_attendance(self, mock_input, mock_file):
+    def test_update_attendance(self, mock_file):
 
         #update attendance
         CheckAttendance.update("2024-10-30.csv")
